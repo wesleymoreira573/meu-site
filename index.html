@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Escola - Tudo Sobre Carros</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    
+
+          #menu li a{
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          color: #ffffff;
+          text-decoration: none;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          padding: 15px 30px;
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 1.1rem;
+          box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+          transition: all 0.3s ease;
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          position: relative;
+          overflow: hidden;
+        }
+
+        #menu li a::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s ease;
+        }
+
+        #menu li a:hover::before {
+          left: 100%;
+        }
+
+        #menu li a:hover{
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+          border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        #menu li a:active{
+          transform: translateY(-1px) scale(1.02);
+          box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        #menu li a i {
+          font-size: 1.3rem;
+          color: #ffffff;
+        }
+
+        #menu {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 30px;
+        }
+
+        #menu ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        #menu li {
+          margin: 0;
+        }
+</style>
+
+</head>
+<body>
+    <!-- Tela de Loading -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="car-wheel">
+                <i class="fas fa-circle-notch"></i>
+            </div>
+            <h2 class="loading-text">Auto Escola</h2>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-car"></i>
+                <span>Auto Escola</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#motor">Motor</a></li>
+                <li><a href="#suspensao">Suspensão</a></li>
+                <li><a href="#freios">Freios</a></li>
+                <li><a href="#transmissao">Transmissão</a></li>
+                <li><a href="#eletrica">Elétrica</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Aprenda Tudo Sobre Carros</h1>
+            <p>Descubra os segredos dos motores, suspensões, freios e muito mais</p>
+            <a href="#motor" class="cta-button">Começar a Aprender</a>
+        </div>
+        <div id="menu">
+        <ul>
+          <li>
+            <a href="index2.html">
+              <i class="fas fa-graduation-cap"></i>
+              Mini Curso
+            </a>
+          </li>
+
+          <li>
+                    
+          </li>
+
+        </ul>
+        </div>
+    </section>
+
+    <!-- Motor Section -->
+    <section id="motor" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-cog"></i>
+                Motor - O Coração do Carro
+            </h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3>Como Funciona o Motor</h3>
+                    <p>O motor é o coração do veículo, responsável por converter combustível em movimento. Os motores mais comuns são os de combustão interna, que funcionam através de um ciclo de quatro tempos:</p>
+                    <ul>
+                        <li><strong>Admissão:</strong> A válvula de admissão abre e o pistão desce, aspirando ar e combustível</li>
+                        <li><strong>Compressão:</strong> O pistão sobe, comprimindo a mistura ar-combustível</li>
+                        <li><strong>Explosão:</strong> A vela de ignição gera uma faísca, causando a explosão</li>
+                        <li><strong>Escape:</strong> O pistão sobe novamente, expulsando os gases queimados</li>
+                    </ul>
+                    <h4>Componentes Principais:</h4>
+                    <ul>
+                        <li><strong>Bloco do Motor:</strong> Estrutura principal que contém os cilindros</li>
+                        <li><strong>Cabeçote:</strong> Contém as válvulas e câmaras de combustão</li>
+                        <li><strong>Pistões:</strong> Movem-se dentro dos cilindros para gerar potência</li>
+                        <li><strong>Virabrequim:</strong> Converte o movimento linear dos pistões em movimento rotativo</li>
+                    </ul>
+                </div>
+                <div class="content-image">
+                    <img src="1f9f88badd13a6bd5a08b825aa310d56c3de630b.jpg" alt="Motor de Combustão Interna" class="section-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suspensão Section -->
+    <section id="suspensao" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-car-side"></i>
+                Suspensão e Amortecedores
+            </h2>
+            <div class="content-grid reverse">
+                <div class="content-image">
+                    <img src="suspensao-do-carro.webp" alt="Sistema de Suspensão" class="section-image">
+                </div>
+                <div class="content-text">
+                    <h3>Sistema de Suspensão</h3>
+                    <p>A suspensão é responsável por manter o conforto dos passageiros e a estabilidade do veículo, absorvendo impactos e vibrações da pista.</p>
+                    
+                    <h4>Componentes da Suspensão:</h4>
+                    <ul>
+                        <li><strong>Molas:</strong> Absorvem impactos e mantêm a altura do veículo</li>
+                        <li><strong>Amortecedores:</strong> Controlam o movimento das molas, evitando oscilações excessivas</li>
+                        <li><strong>Buchas:</strong> Conectam os componentes e permitem movimento controlado</li>
+                        <li><strong>Barras Estabilizadoras:</strong> Reduzem a inclinação lateral em curvas</li>
+                    </ul>
+
+                    <h4>Tipos de Suspensão:</h4>
+                    <ul>
+                        <li><strong>Independente:</strong> Cada roda se move independentemente</li>
+                        <li><strong>Eixo Rígido:</strong> Ambas as rodas se movem juntas</li>
+                        <li><strong>McPherson:</strong> Sistema compacto e eficiente</li>
+                        <li><strong>Multilink:</strong> Oferece excelente controle e conforto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freios Section -->
+    <section id="freios" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-stop-circle"></i>
+                Sistema de Freios
+            </h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3>Como Funcionam os Freios</h3>
+                    <p>O sistema de freios é essencial para a segurança, convertendo a energia cinética do veículo em calor através do atrito.</p>
+                    
+                    <h4>Componentes dos Freios:</h4>
+                    <ul>
+                        <li><strong>Disco de Freio:</strong> Superfície metálica que gira com a roda</li>
+                        <li><strong>Pastilhas de Freio:</strong> Material de atrito que pressiona o disco</li>
+                        <li><strong>Pinça de Freio:</strong> Aplica pressão nas pastilhas</li>
+                        <li><strong>Cilindro Mestre:</strong> Converte a força do pedal em pressão hidráulica</li>
+                    </ul>
+
+                    <h4>Tipos de Sistema de Freio:</h4>
+                    <ul>
+                        <li><strong>Freio a Disco:</strong> Mais eficiente e resistente ao aquecimento</li>
+                        <li><strong>Freio a Tambor:</strong> Sistema mais simples e econômico</li>
+                        <li><strong>ABS:</strong> Sistema anti-bloqueio que previne derrapagens</li>
+                        <li><strong>Freio de Mão:</strong> Sistema mecânico para estacionamento</li>
+                    </ul>
+                </div>
+                <div class="content-image">
+                    <img src="post_thumbnail-6b7dfed4b8dc6e404a027480fda52cce-1280x720.webp" alt="Sistema de Freios" class="section-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transmissão Section -->
+    <section id="transmissao" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-cogs"></i>
+                Sistema de Transmissão
+            </h2>
+            <div class="content-grid reverse">
+                <div class="content-image">
+                    <img src="Transmissao-carro-1.jpg" alt="Sistema de Transmissão" class="section-image">
+                </div>
+                <div class="content-text">
+                    <h3>Transmissão de Potência</h3>
+                    <p>A transmissão transfere a potência do motor para as rodas, permitindo diferentes velocidades e direções.</p>
+                    
+                    <h4>Componentes da Transmissão:</h4>
+                    <ul>
+                        <li><strong>Embreagem:</strong> Conecta e desconecta o motor da transmissão</li>
+                        <li><strong>Câmbio:</strong> Permite diferentes relações de marchas</li>
+                        <li><strong>Cardã:</strong> Transfere potência para o eixo traseiro</li>
+                        <li><strong>Diferencial:</strong> Permite que as rodas girem em velocidades diferentes</li>
+                    </ul>
+
+                    <h4>Tipos de Transmissão:</h4>
+                    <ul>
+                        <li><strong>Manual:</strong> Controle total das marchas pelo motorista</li>
+                        <li><strong>Automática:</strong> Troca de marchas automática</li>
+                        <li><strong>CVT:</strong> Transmissão continuamente variável</li>
+                        <li><strong>Sequencial:</strong> Usada em carros esportivos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sistema Elétrico Section -->
+    <section id="eletrica" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-bolt"></i>
+                Sistema Elétrico
+            </h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3>Eletricidade no Carro</h3>
+                    <p>O sistema elétrico é responsável por fornecer energia para todos os componentes eletrônicos e elétricos do veículo.</p>
+                    
+                    <h4>Componentes Elétricos:</h4>
+                    <ul>
+                        <li><strong>Bateria:</strong> Fornece energia para partida e sistemas auxiliares</li>
+                        <li><strong>Alternador:</strong> Recarrega a bateria e alimenta os sistemas</li>
+                        <li><strong>Motor de Partida:</strong> Gira o motor para dar partida</li>
+                        <li><strong>Fusíveis:</strong> Protegem os circuitos elétricos</li>
+                    </ul>
+
+                    <h4>Sistemas Elétricos Modernos:</h4>
+                    <ul>
+                        <li><strong>ECU:</strong> Unidade de controle eletrônico do motor</li>
+                        <li><strong>Sensores:</strong> Monitoram temperatura, pressão e outros parâmetros</li>
+                        <li><strong>Atuadores:</strong> Controlam válvulas e outros componentes</li>
+                        <li><strong>Multiplexação:</strong> Sistema de comunicação entre módulos</li>
+                    </ul>
+                </div>
+                <div class="content-image">
+                    <img src="chicote.jpg" alt="Sistema Elétrico" class="section-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Auto Escola</h3>
+                    <p>Aprenda tudo sobre carros de forma simples e didática.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#motor">Motor</a></li>
+                        <li><a href="#suspensao">Suspensão</a></li>
+                        <li><a href="#freios">Freios</a></li>
+                        <li><a href="#transmissao">Transmissão</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> info@autoescola.com</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Auto Escola. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
