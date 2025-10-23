@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Curso - Aprenda Sobre o Carro</title>
+  <link rel="stylesheet" href="link style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    .header-actions {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .back-to-main-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .back-to-main-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .back-to-main-button i {
+      font-size: 1.2rem;
+    }
+
+    .back-to-main-button span {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .back-to-main-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .back-to-main-button span {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-header">
+    <div class="header-content">
+      <div class="header-icon">
+        <i class="fas fa-car"></i>
+      </div>
+      <h1>Mini Curso Gratuito: Conhecendo Seu Carro</h1>
+      <p>Aprenda o básico sobre motor, freios e cuidados essenciais antes de dirigir!</p>
+      <div class="header-decoration">
+        <div class="decoration-line"></div>
+        <i class="fas fa-star"></i>
+        <div class="decoration-line"></div>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="back-to-main-button">
+          <i class="fas fa-home"></i>
+          <span>Voltar à Página Principal</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="section-header">
+      <h2><i class="fas fa-graduation-cap"></i> Aulas Disponíveis</h2>
+      <p>Escolha uma das aulas abaixo para começar sua jornada de aprendizado</p>
+    </div>
+    
+    <div class="lessons-grid">
+      <div class="lesson-card">
+        <div class="card-icon">
+          <i class="fas fa-cog"></i>
+        </div>
+        <div class="card-content">
+          <h3>Aula 1: O que é o motor?</h3>
+          <p>Entenda como funciona o coração do seu carro e os componentes principais</p>
+          <a class="lesson-button" href="aula1.html">
+            <span>Começar Aula</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div class="card-icon">
+          <i class="fas fa-hand-paper"></i>
+        </div>
+        <div class="card-content">
+          <h3>Aula 2: Como funcionam os freios?</h3>
+          <p>Conheça o sistema de frenagem e como manter sua segurança</p>
+          <a class="lesson-button" href="aula2.html">
+            <span>Começar Aula</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div class="card-icon">
+          <i class="fas fa-clipboard-check"></i>
+        </div>
+        <div class="card-content">
+          <h3>Aula 3: Checklist antes de dirigir</h3>
+          <p>Lista essencial de verificações para uma viagem segura</p>
+          <a class="lesson-button" href="aula3.html">
+            <span>Começar Aula</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

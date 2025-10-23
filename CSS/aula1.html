@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1: O que é o motor? - Mini Curso</title>
+    <link rel="stylesheet" href="link style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .lesson-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .lesson-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lesson-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .lesson-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .lesson-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .lesson-section {
+            margin-bottom: 40px;
+        }
+
+        .lesson-section h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lesson-section h2 i {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+
+        .lesson-section h3 {
+            color: #555;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .lesson-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .lesson-section ul {
+            color: #666;
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+
+        .lesson-section li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .lesson-section strong {
+            color: #333;
+        }
+
+        .motor-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .motor-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            height: 100%;
+            width: 33%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .next-lesson {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .next-lesson a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .next-lesson a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .video-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+
+        .video-container h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 15px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-description {
+            color: #666;
+            font-style: italic;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .video-description i {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .lesson-container {
+                padding: 10px;
+            }
+            
+            .lesson-header h1 {
+                font-size: 2rem;
+            }
+            
+            .lesson-content {
+                padding: 20px;
+            }
+
+            .video-container {
+                padding: 20px;
+            }
+
+            .video-container h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <a href="index2.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Voltar ao Mini Curso
+        </a>
+
+        <div class="lesson-header">
+            <h1><i class="fas fa-cog"></i> Aula 1: O que é o motor?</h1>
+            <p>Entenda como funciona o coração do seu carro</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p><small>Progresso: 1 de 3 aulas</small></p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="lesson-section">
+                <h2><i class="fas fa-heart"></i> O que é o motor?</h2>
+                <p>O motor é o <strong>coração do seu carro</strong>! É ele que transforma combustível (gasolina, álcool ou diesel) em movimento, fazendo com que as rodas girem e o carro se mova.</p>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-lightbulb"></i> Analogia Simples</h3>
+                    <p>Imagine o motor como um coração que bombeia sangue. No caso do carro, ele "bombeia" energia para fazer tudo funcionar!</p>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-cogs"></i> Como funciona o motor?</h2>
+                <p>O motor funciona através de um ciclo de <strong>4 tempos</strong> que se repete milhares de vezes por minuto:</p>
+                
+                <h3>1. Admissão (Aspirar)</h3>
+                <p>O motor "aspira" uma mistura de ar e combustível, como quando você inspira o ar.</p>
+                
+                <h3>2. Compressão (Comprimir)</h3>
+                <p>Essa mistura é comprimida em um espaço muito pequeno, aumentando sua energia.</p>
+                
+                <h3>3. Explosão (Queimar)</h3>
+                <p>Uma faísca da vela de ignição faz a mistura explodir, liberando muita energia!</p>
+                
+                <h3>4. Escape (Expulsar)</h3>
+                <p>Os gases queimados são expulsos do motor, como quando você expira.</p>
+                
+                <div class="video-container">
+                    <h3><i class="fas fa-play-circle"></i> Veja como funciona na prática!</h3>
+                    <div class="video-wrapper">
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/beyCxjykDiA" 
+                            title="Como funciona o motor de combustão interna" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-description">
+                        <i class="fas fa-info-circle"></i>
+                        Este vídeo mostra uma animação detalhada do ciclo de 4 tempos do motor de combustão interna.
+                    </p>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-tools"></i> Componentes principais</h2>
+                
+                <h3><i class="fas fa-cube"></i> Bloco do Motor</h3>
+                <p>É a "casa" do motor, onde ficam os cilindros. É feito de metal muito resistente.</p>
+                
+                <h3><i class="fas fa-circle"></i> Pistões</h3>
+                <p>São como "êmbolos" que sobem e descem dentro dos cilindros, criando o movimento.</p>
+                
+                <h3><i class="fas fa-cog"></i> Virabrequim</h3>
+                <p>Transforma o movimento de "sobe e desce" dos pistões em movimento de rotação.</p>
+                
+                <h3><i class="fas fa-fire"></i> Vela de Ignição</h3>
+                <p>Cria a faísca que faz o combustível explodir (só nos motores a gasolina).</p>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-car"></i> Tipos de motor</h2>
+                
+                <h3>Motor a Gasolina</h3>
+                <ul>
+                    <li>Usa gasolina como combustível</li>
+                    <li>Tem vela de ignição</li>
+                    <li>Mais comum nos carros</li>
+                </ul>
+                
+                <h3>Motor a Álcool</h3>
+                <ul>
+                    <li>Usa etanol (álcool)</li>
+                    <li>Também tem vela de ignição</li>
+                    <li>Muito usado no Brasil</li>
+                </ul>
+                
+                <h3>Motor Flex</h3>
+                <ul>
+                    <li>Funciona com gasolina OU álcool</li>
+                    <li>O próprio carro escolhe o melhor combustível</li>
+                    <li>Muito prático!</li>
+                </ul>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Sinais de problemas no motor</h2>
+                <p>Fique atento a estes sinais que indicam problemas:</p>
+                <ul>
+                    <li><strong>Barulho estranho:</strong> Ruídos diferentes do normal</li>
+                    <li><strong>Fumaça:</strong> Fumaça saindo do escapamento</li>
+                    <li><strong>Dificuldade para ligar:</strong> Motor demora para "pegar"</li>
+                    <li><strong>Consumo excessivo:</strong> Gastando mais combustível</li>
+                    <li><strong>Luzes no painel:</strong> Indicadores acesos</li>
+                </ul>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-shield-alt"></i> Cuidados básicos</h2>
+                <p>Para manter seu motor funcionando bem:</p>
+                <ul>
+                    <li><strong>Troque o óleo regularmente</strong> - É como o "sangue" do motor</li>
+                    <li><strong>Use combustível de qualidade</strong> - Evite postos suspeitos</li>
+                    <li><strong>Faça revisões periódicas</strong> - Leve ao mecânico regularmente</li>
+                    <li><strong>Aquecimento:</strong> Deixe o motor aquecer antes de acelerar muito</li>
+                    <li><strong>Arrefecimento:</strong> Não desligue o motor imediatamente após uso intenso</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3><i class="fas fa-graduation-cap"></i> Você aprendeu!</h3>
+                <p>Agora você sabe que o motor é o coração do carro, como ele funciona e como cuidar dele. Parabéns!</p>
+            </div>
+        </div>
+
+        <div class="next-lesson">
+            <a href="aula2.html">
+                <span>Próxima Aula: Como funcionam os freios?</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2: Como funcionam os freios? - Mini Curso</title>
+    <link rel="stylesheet" href="link style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .lesson-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            min-height: 100vh;
+        }
+
+        .lesson-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lesson-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .lesson-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .lesson-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .lesson-section {
+            margin-bottom: 40px;
+        }
+
+        .lesson-section h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lesson-section h2 i {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+        }
+
+        .lesson-section h3 {
+            color: #555;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .lesson-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .lesson-section ul {
+            color: #666;
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+
+        .lesson-section li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .lesson-section strong {
+            color: #333;
+        }
+
+        .brake-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .brake-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            height: 100%;
+            width: 66%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .next-lesson {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .next-lesson a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .next-lesson a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+
+        .video-container h3 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 15px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-description {
+            color: #666;
+            font-style: italic;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .video-description i {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            .lesson-container {
+                padding: 10px;
+            }
+            
+            .lesson-header h1 {
+                font-size: 2rem;
+            }
+            
+            .lesson-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <a href="index2.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Voltar ao Mini Curso
+        </a>
+
+        <div class="lesson-header">
+            <h1><i class="fas fa-hand-paper"></i> Aula 2: Como funcionam os freios?</h1>
+            <p>Entenda o sistema que garante sua segurança</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p><small>Progresso: 2 de 3 aulas</small></p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="lesson-section">
+                <h2><i class="fas fa-shield-alt"></i> O que são os freios?</h2>
+                <p>Os freios são o <strong>sistema de segurança mais importante</strong> do seu carro! Eles transformam a energia de movimento do carro em calor, fazendo com que ele pare de forma controlada.</p>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-lightbulb"></i> Analogia Simples</h3>
+                    <p>Imagine os freios como suas mãos segurando uma bicicleta em movimento. Quanto mais forte você segura, mais rápido ela para!</p>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-cogs"></i> Como funcionam os freios?</h2>
+                <p>Quando você pisa no pedal do freio, acontece uma sequência de eventos:</p>
+                
+                <h3>1. Pressão no Pedal</h3>
+                <p>Você aplica força no pedal do freio com o pé.</p>
+                
+                <h3>2. Amplificação da Força</h3>
+                <p>O sistema hidráulico amplifica sua força, como uma alavanca gigante.</p>
+                
+                <h3>3. Aplicação nas Rodas</h3>
+                <p>A força é distribuída para as 4 rodas do carro.</p>
+                
+                <h3>4. Atrito e Parada</h3>
+                <p>As pastilhas pressionam os discos, criando atrito que para o carro.</p>
+                
+                <div class="video-container">
+                    <h3><i class="fas fa-play-circle"></i> Veja como funciona na prática!</h3>
+                    <div class="video-wrapper">
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/c5rkdxMwIaQ" 
+                            title="Como funcionam os freios" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="video-description">
+                        <i class="fas fa-info-circle"></i>
+                        Este vídeo mostra uma explicação detalhada sobre como funcionam os sistemas de freio.
+                    </p>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-tools"></i> Componentes principais</h2>
+                
+                <h3><i class="fas fa-circle"></i> Pedal do Freio</h3>
+                <p>É onde você pisa. Quanto mais forte pisar, mais rápido o carro para.</p>
+                
+                <h3><i class="fas fa-tint"></i> Cilindro Mestre</h3>
+                <p>Transforma a força do seu pé em pressão hidráulica (líquido sob pressão).</p>
+                
+                <h3><i class="fas fa-circle-notch"></i> Discos de Freio</h3>
+                <p>Discos de metal que giram junto com as rodas.</p>
+                
+                <h3><i class="fas fa-hand-paper"></i> Pastilhas de Freio</h3>
+                <p>Material especial que pressiona o disco, criando atrito para parar.</p>
+                
+                <h3><i class="fas fa-compress"></i> Pinças</h3>
+                <p>Segura as pastilhas e as pressiona contra o disco.</p>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-car"></i> Tipos de sistema de freio</h2>
+                
+                <h3>Freio a Disco</h3>
+                <ul>
+                    <li>Mais eficiente e moderno</li>
+                    <li>Resiste melhor ao aquecimento</li>
+                    <li>Usado nas rodas dianteiras</li>
+                    <li>Mais fácil de trocar as pastilhas</li>
+                </ul>
+                
+                <h3>Freio a Tambor</h3>
+                <ul>
+                    <li>Sistema mais simples</li>
+                    <li>Mais barato de manter</li>
+                    <li>Usado nas rodas traseiras</li>
+                    <li>Protege melhor contra água</li>
+                </ul>
+                
+                <h3>ABS (Anti-lock Braking System)</h3>
+                <ul>
+                    <li>Evita que as rodas travem</li>
+                    <li>Mantém o controle do carro</li>
+                    <li>Reduz a distância de frenagem</li>
+                    <li>Padrão em carros modernos</li>
+                </ul>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Sinais de problemas nos freios</h2>
+                <p>Fique muito atento a estes sinais - freios com problema são perigosos!</p>
+                
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> ATENÇÃO!</h4>
+                    <p>Se notar qualquer um destes sinais, vá imediatamente ao mecânico!</p>
+                </div>
+                
+                <ul>
+                    <li><strong>Barulho de metal:</strong> Som de metal raspando</li>
+                    <li><strong>Pedal mole:</strong> Pedal vai até o chão facilmente</li>
+                    <li><strong>Vibração:</strong> Volante ou pedal vibram ao frear</li>
+                    <li><strong>Carro puxa para um lado:</strong> Não freia reto</li>
+                    <li><strong>Cheiro de queimado:</strong> Odor estranho ao frear</li>
+                    <li><strong>Luz do ABS acesa:</strong> Indicador no painel</li>
+                </ul>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-shield-alt"></i> Cuidados essenciais</h2>
+                <p>Para manter seus freios sempre seguros:</p>
+                <ul>
+                    <li><strong>Troque as pastilhas regularmente</strong> - Elas se desgastam com o uso</li>
+                    <li><strong>Verifique o fluido de freio</strong> - Deve estar no nível correto</li>
+                    <li><strong>Evite freios bruscos</strong> - Freie suavemente quando possível</li>
+                    <li><strong>Faça revisões periódicas</strong> - Leve ao mecânico regularmente</li>
+                    <li><strong>Não ignore sinais estranhos</strong> - Qualquer problema é urgente</li>
+                    <li><strong>Use o freio de mão</strong> - Sempre que estacionar</li>
+                </ul>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-car-side"></i> Freio de mão (freio de estacionamento)</h2>
+                <p>O freio de mão é diferente do freio normal:</p>
+                
+                <h3>Para que serve?</h3>
+                <ul>
+                    <li>Manter o carro parado quando estacionado</li>
+                    <li>Evitar que o carro role em ladeiras</li>
+                    <li>Sistema de segurança adicional</li>
+                </ul>
+                
+                <h3>Como usar?</h3>
+                <ul>
+                    <li><strong>Puxar:</strong> Levante a alavanca para travar</li>
+                    <li><strong>Soltar:</strong> Pressione o botão e abaixe</li>
+                    <li><strong>Sempre usar:</strong> Mesmo em terreno plano</li>
+                </ul>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-road"></i> Dicas de direção segura</h2>
+                <p>Como usar os freios de forma eficiente:</p>
+                <ul>
+                    <li><strong>Antecipe-se:</strong> Veja o trânsito à frente</li>
+                    <li><strong>Freie suavemente:</strong> Evite freadas bruscas</li>
+                    <li><strong>Mantenha distância:</strong> Deixe espaço do carro da frente</li>
+                    <li><strong>Em emergências:</strong> Pise forte e mantenha pressionado</li>
+                    <li><strong>Em ladeiras:</strong> Use o freio motor também</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3><i class="fas fa-graduation-cap"></i> Você aprendeu!</h3>
+                <p>Agora você sabe como funcionam os freios, como identificar problemas e como dirigir com segurança. Lembre-se: freios são vida!</p>
+            </div>
+        </div>
+
+        <div class="next-lesson">
+            <a href="aula3.html">
+                <span>Próxima Aula: Checklist antes de dirigir</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

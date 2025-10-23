@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 3: Checklist antes de dirigir - Mini Curso</title>
+    <link rel="stylesheet" href="link style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .lesson-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            min-height: 100vh;
+        }
+
+        .lesson-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lesson-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .lesson-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .lesson-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .lesson-section {
+            margin-bottom: 40px;
+        }
+
+        .lesson-section h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lesson-section h2 i {
+            color: #00b894;
+            font-size: 1.5rem;
+        }
+
+        .lesson-section h3 {
+            color: #555;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .lesson-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .lesson-section ul {
+            color: #666;
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+
+        .lesson-section li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .lesson-section strong {
+            color: #333;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #00b894;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: #e8f5e8;
+            transform: translateX(5px);
+        }
+
+        .checklist-item i {
+            color: #00b894;
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #00b894;
+        }
+
+        .checklist-item label {
+            flex: 1;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .completion-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .completion-section a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
+        }
+
+        .completion-section a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 184, 148, 0.4);
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .success-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .lesson-container {
+                padding: 10px;
+            }
+            
+            .lesson-header h1 {
+                font-size: 2rem;
+            }
+            
+            .lesson-content {
+                padding: 20px;
+            }
+
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <a href="index2.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Voltar ao Mini Curso
+        </a>
+
+        <div class="lesson-header">
+            <h1><i class="fas fa-clipboard-check"></i> Aula 3: Checklist antes de dirigir</h1>
+            <p>Sua lista de verificação para uma viagem segura</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p><small>Progresso: 3 de 3 aulas - CONCLUÍDO!</small></p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="lesson-section">
+                <h2><i class="fas fa-shield-alt"></i> Por que fazer um checklist?</h2>
+                <p>Antes de dirigir, é essencial verificar se tudo está funcionando perfeitamente. Um checklist ajuda a:</p>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-lightbulb"></i> Benefícios do Checklist</h3>
+                    <p>• Evitar problemas na estrada<br>
+                    • Garantir sua segurança<br>
+                    • Economizar dinheiro com reparos<br>
+                    • Dirigir com confiança</p>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-car"></i> Checklist Externo do Veículo</h2>
+                <p>Verificações que você pode fazer olhando o carro por fora:</p>
+                
+                <div class="checklist-grid">
+                    <div>
+                        <h3><i class="fas fa-eye"></i> Visual Geral</h3>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="pneus">
+                            <label for="pneus">Pneus com pressão adequada</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="pneus-desgaste">
+                            <label for="pneus-desgaste">Pneus sem desgaste excessivo</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="farois">
+                            <label for="farois">Faróis funcionando</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="luzes">
+                            <label for="luzes">Luzes de freio e setas</label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3><i class="fas fa-tools"></i> Componentes</h3>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="espelhos">
+                            <label for="espelhos">Espelhos ajustados</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="limpador">
+                            <label for="limpador">Limpador de para-brisa</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="combustivel">
+                            <label for="combustivel">Combustível suficiente</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="documentos">
+                            <label for="documentos">Documentos do veículo</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-cog"></i> Checklist Interno do Veículo</h2>
+                <p>Verificações dentro do carro:</p>
+                
+                <div class="checklist-grid">
+                    <div>
+                        <h3><i class="fas fa-tachometer-alt"></i> Painel e Controles</h3>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="painel">
+                            <label for="painel">Painel sem luzes de alerta</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="freio-pedal">
+                            <label for="freio-pedal">Pedal de freio firme</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="direcao">
+                            <label for="direcao">Direção funcionando bem</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="cinto">
+                            <label for="cinto">Cintos de segurança</label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3><i class="fas fa-user"></i> Conforto e Segurança</h3>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="banco">
+                            <label for="banco">Banco ajustado</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="espelhos-internos">
+                            <label for="espelhos-internos">Espelhos internos</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="ar-condicionado">
+                            <label for="ar-condicionado">Ar condicionado/ventilação</label>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="checkbox" id="radio">
+                            <label for="radio">Rádio/GPS funcionando</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-user-check"></i> Checklist Pessoal</h2>
+                <p>Verificações sobre você mesmo antes de dirigir:</p>
+                
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="cnh">
+                    <label for="cnh">CNH válida e com você</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="saude">
+                    <label for="saude">Bem de saúde para dirigir</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="sono">
+                    <label for="sono">Bem descansado</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="alcool">
+                    <label for="alcool">Sem consumo de álcool</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="medicamentos">
+                    <label for="medicamentos">Medicamentos não afetam direção</label>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> Sinais de alerta</h2>
+                <p>Se você notar qualquer um destes problemas, NÃO dirija:</p>
+                
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> NÃO DIRIJA SE:</h4>
+                    <ul>
+                        <li>Estiver com sono ou cansaço excessivo</li>
+                        <li>Tiver consumido álcool ou drogas</li>
+                        <li>Estiver tomando medicamentos que causam sonolência</li>
+                        <li>Estiver muito estressado ou nervoso</li>
+                        <li>O carro apresentar problemas mecânicos</li>
+                        <li>As condições climáticas estiverem muito ruins</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-clock"></i> Checklist rápido (5 minutos)</h2>
+                <p>Para quando você estiver com pressa, mas ainda precisa verificar o essencial:</p>
+                
+                <div class="success-box">
+                    <h4><i class="fas fa-clock"></i> VERIFICAÇÃO RÁPIDA:</h4>
+                    <ol>
+                        <li><strong>Pneus:</strong> Olhe se não estão murchos</li>
+                        <li><strong>Faróis:</strong> Teste ligando e desligando</li>
+                        <li><strong>Freios:</strong> Pise no pedal - deve estar firme</li>
+                        <li><strong>Painel:</strong> Sem luzes de alerta acesas</li>
+                        <li><strong>Documentos:</strong> CNH e documentos do carro</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <h2><i class="fas fa-calendar-check"></i> Checklist semanal</h2>
+                <p>Verificações que devem ser feitas pelo menos uma vez por semana:</p>
+                
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="oleo">
+                    <label for="oleo">Nível do óleo do motor</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="agua">
+                    <label for="agua">Nível da água do radiador</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="fluido-freio">
+                    <label for="fluido-freio">Fluido de freio</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="bateria">
+                    <label for="bateria">Estado da bateria</label>
+                </div>
+                <div class="checklist-item">
+                    <i class="fas fa-check-circle"></i>
+                    <input type="checkbox" id="pneus-pressao">
+                    <label for="pneus-pressao">Pressão dos pneus</label>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3><i class="fas fa-trophy"></i> Parabéns! Você completou o mini curso!</h3>
+                <p>Agora você sabe tudo sobre motor, freios e como se preparar para dirigir com segurança. Lembre-se: sempre faça seu checklist antes de dirigir!</p>
+            </div>
+        </div>
+
+        <div class="completion-section">
+            <a href="index2.html">
+                <span>Voltar ao Mini Curso</span>
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Adiciona funcionalidade aos checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const item = this.closest('.checklist-item');
+                    if (this.checked) {
+                        item.style.background = '#e8f5e8';
+                        item.style.borderLeftColor = '#28a745';
+                    } else {
+                        item.style.background = '#f8f9fa';
+                        item.style.borderLeftColor = '#00b894';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
